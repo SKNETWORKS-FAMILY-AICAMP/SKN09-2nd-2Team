@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-
 # 제목
-st.title("🎵 음악 사이트 이탈률 예측")
+st.set_page_config(page_title="🎵 음악 사이트 이탈률 예측", layout="wide")
+
 
 # 📌 [1] 사용자 정보
 st.header("👤 사용자 정보")
@@ -33,7 +33,7 @@ with col2:
     num_985 = st.number_input("🎵 98.5% 이하 청취 횟수", min_value=0, step=1, value=20)
 with col3:
     num_100 = st.number_input("🎵 100% 청취 횟수", min_value=0, step=1, value=10)
-    num_unq = st.number_input("📀 고유 곡 수", min_value=1, step=1, value=500)
+    num_unq = st.number_input("📀 고유 청취 곡 수", min_value=1, step=1, value=500)
 
 # 📌 [4] 활동 기간
 st.header("📆 활동 기간")
@@ -73,4 +73,4 @@ st.dataframe(show_data)
 
 # 예측 버튼 추가
 if st.button("🚀 예측하기"):
-    st.write("📢 모델을 로드하여 예측하는 코드를 추가하세요.")
+    st.write("📢 모델을 로드하여 예측하는 코드삽입부")
