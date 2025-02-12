@@ -93,7 +93,6 @@
 ## 데이터 이상치 및 결측치 처리
 - 이상치 탐색 후 제거
 
-
 | <img src="kimujung/boxplot_1.png" width="300" height="300" /> | <img src="kimujung/boxplot_2.png" width="300" height="300" /> |
 
 
