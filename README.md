@@ -36,10 +36,10 @@
 
 | 이름      | GitHub ID                          |
 |-----------|------------------------------------|
-| 🧑‍💻 김우중  | [@YUJINDL01](https://github.com/kwj9942) |
+| 🧑‍💻 김우중  | [@kwj9942](https://github.com/kwj9942)      |
 | 👩‍💻 이다인  | [@daainn](https://github.com/daainn)        |
 | 👩‍💻 이재혁  | [@ohdyo](https://github.com/ohdyo)          |
-| 👨‍💻 전성원  | [@Monkakaka](https://github.com/Hack012) |
+| 👨‍💻 전성원  | [@Hack012](https://github.com/Hack012)      |
 
 <br>
 
