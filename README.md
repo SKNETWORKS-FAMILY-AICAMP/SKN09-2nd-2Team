@@ -97,6 +97,10 @@
 | <img src="kimujung/boxplot_1.png" width="300" height="300" /> | <img src="kimujung/boxplot_2.png" width="300" height="300" /> |
 
 
+- 결측치 대체 시도
+
+- 나머지 변수들이 성별과 나이를 대표할 수 없어 결측치 대체에 실패하여 결측치를 전부 제거
+
 ## EDA
 
 ## 데이터 전처리
