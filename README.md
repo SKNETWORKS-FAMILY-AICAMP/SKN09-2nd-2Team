@@ -212,7 +212,7 @@
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
+|정확도: 0.958 <br> 정밀도: 0.924 <br> 재현율: 0.998| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM
@@ -221,7 +221,7 @@
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.882 <br> 정밀도: 0.7 <br> 재현율: 0.575| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
+|정확도: 0.882 <br> 정밀도: 0.700 <br> 재현율: 0.575| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM 오버샘플링
@@ -230,7 +230,7 @@
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.97| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
+|정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.970| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
 </center>
 
 
@@ -241,7 +241,7 @@
 
 | **의사결정나무** | **랜덤 포레스트** | **XGBoost** | **LightGBM** |
 |:------------:|:------------:|:------------:|:------------:|
-| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 | 정확도: 0. <br> 정밀도: 0. <br> 재현율: 0. | 정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.97 |
+| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 | 정확도: 0.958 <br> 정밀도: 0.924 <br> 재현율: 0.998 | 정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.97 |
 </center>
 
 - 높은 정확도 확인
