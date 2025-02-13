@@ -1,8 +1,13 @@
 # [SKN09-2nd-2Team]
 ✅ SKN AI FAMILY CAMP 9기<br>
 
+<div align="center">
+  <img src="./readme_images/team.png" height="70%" width="70%">
+</div>
+
+
 ---
-# 💗Contents
+# 🔊Contents
 
 
 | 1. 팀 소개 | 2. 프로젝트 소개 | 3. 데이터 소개 | 4. ML 절차 | 5.기대효과 |
@@ -13,8 +18,8 @@
 
 ---
 
-# 💗Team Introduce
-### 🎃팀명: Fade Out 🍀<br>
+# 🎙️Team Introduce
+### 🎃팀명: StayTuned 🍀<br>
 ### 🐱팀원
 
 | 이름      | GitHub ID                          |
@@ -29,7 +34,7 @@
 
 ---
 
-# 💗Project Overview
+# 🎼Project Overview
 ✅ **프로젝트 기간: 2025.02.04 - 2025. 02.14**
 ## WBS
 - 이미지 들어갈 예정
@@ -41,7 +46,8 @@
 최근 음악 스트리밍 서비스 시장이 급격히 성장함에 따라, 사용자 확보뿐만 아니라 사용자 유지율이 중요한 경쟁 요소가 되고 있다.하지만 많은 사용자들이 일정 기간 사용 후 서비스를 이탈하는 문제(churn)가 발생하며, 이러한 현상은 서비스 운영 측면에서 큰 도전 과제로 남은 상태다.
 이번 프로젝트에선 이용자 이탈 패턴을 탐색하고, 이를 최소화할 수 있는 전략을 도출하는데 도움을 주고자 기획됐다.
 
-# 💗 Dataset Description
+# 🪗 Dataset Description
+
 ## 데이터 소개
 - <a href="https://www.kaggle.com/competitions/kkbox-churn-prediction-challenge/data">대만 음원 사이트KKBox</a>
 ## 사용 컬럼 소개
@@ -53,6 +59,7 @@
 - **is_churn**: 이탈 여부 (1: 이탈, 0: 유지)
 
 `members.csv`
+> *사용자의 고유 특성과 관련된 데이터*
 - **msno**: 사용자 고유 식별자
 - **city**: 사용자의 도시 코드
 - **bd**: 사용자의 연령
@@ -62,6 +69,7 @@
 
 
 `transactions.csv`
+> *사용자의 거래와 관련된 데이터*
 - **msno**: 사용자 고유 식별자
 - **payment_plan_id** : 지불 방법
 - **payment_plan_days** : 멤버심 플랜 기간 (일)
@@ -70,10 +78,10 @@
 - **is_auto_renew** : 자동갱신 여부
 - **transaction_date** : 구독 거래 날짜
 - **membership_expire_date** : 구독 만료 날짜
-- **is_
 - **is_cancel**: 구독 취소 여부
 
 `user_logs.csv`
+> *사용자의 노래 청취와 관련된 데이터*
 - **msno**: 사용자 고유 식별자
 - **날짜**: 노래를 청취한 날짜(로그에 기록된 날짜)
 - **num_25**: 전체 노래 길이 중 25% 이하로 청취된 곡 수
@@ -87,6 +95,7 @@
 ### 최종 데이터
 
 `final_data.csv`
+> *데이터 정제 및 파생변수 생성을 마친 최종 데이터*
 - **city**: 사용자의 도시 코드
 - **bd**: 사용자의 연령
 - **gender**: 사용자의 성별 (남성/여성/미입력)
@@ -111,19 +120,26 @@
 총 노래 청취 기간
 - **is_back**: 사용자가 다시 돌아왔는지 여부
 
-# Tech Stack
+# 🎧Tech Stack
+| **분류**         | **기술/도구**                                                                            |
+|------------------|------------------------------------------------------------------------------------------|
+| **언어**         | ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python)     |
+| **라이브러리**   | ![NumPy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy)       ![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas)   ![Matplotlib](https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=Matplotlib) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) |
+| **협업 툴**      | ![GitHub](https://img.shields.io/badge/github-121011?style=for-the-badge&logo=github)   ![Git](https://img.shields.io/badge/git-F05033?style=for-the-badge&logo=git) ![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)         |
 
-# 💗 데이터 전처리 결과서 (EDA)
+
+# 🥁 데이터 전처리 결과서 (EDA)
 
 ## 데이터 정제 및 파생변수 생성
-사용자를 식별하는  `MSNO`컬럼값이 `Rb9UwLQTrxzBVwCB6+bCcSQWZ9JiNLC9dXtM1oEsZA8=`와 같이 매우 길게 구성되어 있어 데이터의 크기를 불필요하게 증가시키는 문제가 있었다. 이를 해결하기 위해 각 값을 고유한 숫자로 변환하는 인코딩을 적용하여 데이터의 효율성을 높였다.
+> 사용자를 식별하는  `MSNO`컬럼값이 `Rb9UwLQTrxzBVwCB6+bCcSQWZ9JiNLC9dXtM1oEsZA8=`와 같이 매우 길게 구성되어 있어 데이터의 크기를 불필요하게 증가시키는 문제가 있었다. 이를 해결하기 위해 각 값을 고유한 숫자로 변환하는 인코딩을 적용하여 데이터의 효율성을 높였다.
 
 #### 거래 데이터
 *
 
 #### 로그 데이터
 
-타 데이터와 로그 데이터를 합치는 과정에서 로그 데이터에만 존재하는 `msno`는 드롭해주었다.
+
+>타 데이터와 로그 데이터를 합치는 과정에서 로그 데이터에만 존재하는 `msno`는 드롭해주었다.
 
 ## 데이터 이상치 및 결측치 처리
 
@@ -133,7 +149,7 @@
 ## 데이터 전처리
 
 
-# 인공지능 학습 결과서 
+# 🎹인공지능 학습 결과서 
 
 ## 모델 선정 및 학습
 
@@ -141,7 +157,7 @@
 
 
 
-# 수행 결과
+# 🎶수행 결과
 
 ## Streamlit
 
@@ -151,4 +167,4 @@
 - 본 프로젝트를 통해 **음악 사이트의 이탈 요인을 보다 명확하게 이해**하고, 이를 기반으로 맞춤형 마케팅 및 운영 전략을 수립할 수 있다.
 - **이탈 예측 모델을 활용하여 사전 대응 전략을 강화**하고, 궁극적으로 사용자 유지율을 높이는 데 도움을 줄수 있다.
 
-# 한 줄 회고
+# 🎧한 줄 회고
