@@ -95,6 +95,21 @@
 ## EDA
 
 ## 데이터 전처리
+1. 불필요한 컬럼 삭제
+    - msno
+    - membership_expire_date
+    - registration_init_time
+    - log_start
+    - log_end
+    - is_back
+2. to datetime 변환
+   - membership_expire_date
+   - registration_init_time
+   - log_start
+   - log_end
+3. 파생변수 생성
+   - 등록기간 (`registration_duration`): [`membership_expire_date`column] - [`registration_init_time`column]
+   - 음악 청취 기간 (`listening_duration`): ([`log_end`column] - [`log_start`column]) 후 day 추출
 
 ## 모델 선정
 
