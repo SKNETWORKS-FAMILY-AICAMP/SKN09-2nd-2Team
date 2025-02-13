@@ -141,11 +141,6 @@
 - **is_back**: 사용자가 다시 돌아왔는지 여부
 
 # 🎧Tech Stack
-| **분류**         | **기술/도구**                                                                            |
-|------------------|------------------------------------------------------------------------------------------|
-| **사용 언어**         | ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python)     |
-| **라이브러리**   | ![NumPy](https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy)       ![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas)   ![Matplotlib](https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=Matplotlib) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) |
-| **협업 툴**      | ![GitHub](https://img.shields.io/badge/github-121011?style=for-the-badge&logo=github)   ![Git](https://img.shields.io/badge/git-F05033?style=for-the-badge&logo=git) ![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)         |
 
 # 🎼WBS
 <img src="./readme_images/wbs.png" height="70%" width="100%">
@@ -261,7 +256,7 @@ def discount_rate_preprocessing(df):
 ## 2. EDA 인사이트 및 주요 패턴
 
 #### 자동갱신 비율에 따른 이탈 여부 분석
-
+> 이탈한 사람 is_churn : 1 , 이탈하지 않은 사람 is_churn : 0
 <div align="center">
 <img src="./readme_images/autorenew_count.png" height="70%" width="70%">
 </div>
@@ -277,10 +272,12 @@ def discount_rate_preprocessing(df):
     *  즉, 자동 갱신을 사용하지 않는 고객이 이탈할 확률이 더 높고, 자동 갱신을 사용할 경우 이탈률이 상대적으로 낮기 때문에, **고객이 자동 갱신을 활성화하도록 유도하는 전략이 중요할 것**으로 판단 된다.
   
 #### 구독 거래 횟수에 따른 이탈 여부
-
+> 이탈한 사람 is_churn : 1 , 이탈하지 않은 사람 is_churn : 0
 <div align="center">
 <img src="./readme_images/transaction_count.png" height="70%" width="70%">
 </div>
+* 이탈하지 않은 고객의 경우 거래횟수가 20과 30구간에서 크게 뛰는 것을 확인가능하지만, 이탈한 고객은 0부근에서 가장 높은 비율을 보이고 점점 줄어드는 것을 확인 가능하다. 
+
 <div align="center">
 <img src="./readme_images/transaction_pie.png" height="70%" width="70%">
 </div>
@@ -289,8 +286,25 @@ def discount_rate_preprocessing(df):
 * 이탈한 사람들은 `0-10 -> 10-20 -> 20-30 -> 30+`순서로 비율이 많지만, 이탈하지 않은 사람들은 `20-30 -> 10-20 -> 0-10 -> 30+`순서로 비율이 많다.
     * 이탈하지 않은 사람들이 확실히 재구독을 한 경우가 많은 것을 알 수 있다.
 
-#### 
+#### 구독 기간에 따른 이탈 여부
+> 이탈한 사람 is_churn : 1 , 이탈하지 않은 사람 is_churn : 0
 
+<div align="center">
+<img src="./readme_images/registration_pie.png" height="70%" width="70%">
+</div>
+
+* 구독 거래 기간(일수)이 0-1000일 사이인 고객의 경우 이탈한 고객이 이탈하지 않은 고객에 비해 13%가량 높은 비율을 보인다.
+    * 즉, 이탈한 고객은 구독 거래기간이 0-1000일로 짧은 경우가 많다는 것.
+* 구독 거래 기간이 2000이상부터 이탈하지 않은 고객이 이탈한 고객에 비해 높은 비율을 가진다.
+
+#### 노래 청취 기간에 따른 이탈 여부
+> 이탈한 사람 is_churn : 1 , 이탈하지 않은 사람 is_churn : 0
+
+<div align="center">
+<img src="./readme_images/listening_pie.png" height="70%" width="70%">
+</div>
+
+* 이탈하지 않은 고객의 경우 800일 이상 음악을 청취한 경우가 50%이상으로 가장 많지만, 이탈한 고객은 600-800일 사이가 가장 많이 분포하고 있는 것을 알 수 있다.
 
 ## 데이터 전처리
 1. 라벨 인코딩(성별) 
