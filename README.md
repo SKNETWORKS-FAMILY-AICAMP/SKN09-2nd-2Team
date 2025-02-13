@@ -51,6 +51,7 @@
 | <img src="./readme_images/포비.png"> | <img src="./readme_images/루피.png"> | <img src="./readme_images/뽀로로.png"> | <img src="./readme_images/패티.png"> |
 | [@kwj9942](https://github.com/kwj9942) | [@daainn](https://github.com/daainn) | [@ohdyo](https://github.com/ohdyo) | [@Hack012](https://github.com/Hack012) |
 
+
 ---
 
 # 🎼Project Overview
@@ -67,7 +68,14 @@
 이러한 환경에서 **사용자 이탈**을 **예측**하고 **방지**하는 것은 음악 앱의 생존과 직결되는 핵심 요소가 되었다.
 
 #### 프로젝트 목표
-블라블라
+1. **사용자 이탈 예측 모델 구축**
+   - 머신러닝 모델을 활용하여 음원 스트리밍 서비스 사용자 이탈을 사전에 예측.
+2. **이탈 방지를 위한 인사이트 제공**
+   - 이탈 사용자들의 주요 특성과 패턴 분석을 통해 이탈 요인 인사이트 도출.
+3. **맞춤형 사용자 유지 전략 제안**
+   - 음원 스트리밍 서비스 마케팅 담당자를 위한 데모 시스템 구현.
+   - 이탈 위험 고객을 분석하고, 개인화된 리텐션 전략(구독 할인, 맞춤형 추천, 독점 콘텐츠 제공 등) 수립을 위한 방향성 제시.
+
 
 ## 3. 데이터 소개
 
@@ -315,6 +323,16 @@ def discount_rate_preprocessing(df):
 
 * 이탈하지 않은 고객의 경우 800일 이상 음악을 청취한 경우가 50%이상으로 가장 많지만, 이탈한 고객은 600-800일 사이가 가장 많이 분포하고 있는 것을 알 수 있다.
 
+#### 가입 경로에 따른 이탈 여부
+<div align="center">
+<img src="./readme_images/registration_bar.png" height="70%" width="70%">
+</div>
+
+* 전체 고객의 절반 이상이 `9번` 결제수단을 사용하고 있으며, 반면 `13번` 결제수단은 299명만 사용한 것으로 보아서 결제수단별 고객 불편 사항을 조사하거나, 결제 수단 별 마케팅 전략을 재검토할 필요성이 있을 것 같다.
+
+* 추가로 이탈 고객은 `4번` 결제수단을 더 자주 사용하며, 이탈하지 않은 고객은 `7번` 결제수단을 더 선호하는 경향이 있는 것으로 보아, 결제수단 선호도가 이탈 여부와 어느정도 관련이 있음을 알 수 있다.
+
+
 ## 데이터 전처리
 1. 라벨 인코딩(성별) 
    ```python
@@ -326,7 +344,7 @@ def discount_rate_preprocessing(df):
    df = encode_gender(df)
    ```
 
-- `StandardScaler`를 통한 정규화
+2.  `StandardScaler`를 통한 정규화
   ```python
   std_scaler = StandardScaler()
   train_scaled = std_scaler.fit_transform(X_train)
@@ -436,6 +454,6 @@ def discount_rate_preprocessing(df):
 # 🎧한 줄 회고
 
 - 김우중 : 
-- 이다인 : 
+- 이다인 : 결측값을 처리하는 과정에서 특정 컬럼의 결측치가 너무 많아 예측 모델로 보완하려 했으나, 설명할 변수가 부족해 적용이 어려웠다. 결국, 해당 컬럼의 결측값을 전부 삭제했음에도 모델 성능이 향상되었고, 이를 통해 무리한 대체보다 적절한 삭제가 중요함을 깨달았다.🤗
 - 이재혁 : 
 - 전성원 : 
