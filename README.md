@@ -221,7 +221,7 @@
 
 | **Score** | **혼동 행렬** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
+|정확도: 0.826 <br> 정밀도: 0.544 <br> 재현율: 0.228| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM 오버샘플링
@@ -230,7 +230,7 @@
 
 | **Score** | **혼동 행렬** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
 </center>
 
 
@@ -264,7 +264,7 @@
 
 # 한 줄 회고
 
-- 김우중 : 
+- 김우중 : 프로젝트 도중 소통 부재 등으로 인해 불필요한 시간 소요가 많았다. 이를 위해 다음부터는 사소한 회의라도 정리하여 공지하고 서로 맡은 업무를 명확하게 나누며, 코드 공유를 통해 전체적인 코드 일관성을 유지하여 추후 코드 병합 시 업무 소요를 최소화 하는 방향으로 업무를 수행할 것이다.
 - 이다인 : 
 - 이재혁 : 
 - 전성원 : 
