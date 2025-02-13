@@ -93,7 +93,8 @@
 ## 데이터 이상치 및 결측치 처리
 - 이상치 탐색 후 제거
 
-| <img src="kimujung/boxplot_1.png" width="300" height="300" /> | <img src="kimujung/boxplot_2.png" width="300" height="300" /> |
+| <img src="kimujung/boxplot_1.png" width="400" height="400" /> | <img src="kimujung/boxplot_2.png" width="400" height="400" /> |
+|:------------:|:---------------:|
 
 
 - 결측치 대체 시도
@@ -101,8 +102,7 @@
 
 | **성별 변수 분류** | **연령 변수 회귀** |
 |:------------:|:---------------:|
-| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
-|  |  |
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> ||:------------:|:---------------:|
 
 - 나머지 변수들이 성별과 나이를 대표할 수 없어 결측치 대체에 실패하여 결측치를 전부 제거
 
