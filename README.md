@@ -355,6 +355,12 @@ def discount_rate_preprocessing(df):
 
 ## 모델 선정 및 학습
 - 모델 선정은 그리드 서치를 이용하여 최적 파리미터를 선택하였고 Stratified 5-Fold한 평가지표의 평균값으로 선정한다.
+- 전체 데이터 수 : 356,277 ({0: 293803, 1: 62474})
+- Fold의 train 데이터 수 : 285,022 ({0: 235043, 1: 49979})
+- Fold의 train 데이터 오버 샘플링 : 329,060 ({0: 235043, 1: 94017})
+- 모집단에서의 사례집단과 대조집단의 불균형 비율이 1:5를 넘어서는 경우 오버샘플링 방법을 사용하는 것이 효과적이고 오버샘플링의 비율은 1:2와 1:3의 사이에서 가장 효과적인 결과를 도출 (출처 : https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART001273099)
+
+<br>
 
 - 의사결정나무
 <center>
@@ -369,7 +375,7 @@ def discount_rate_preprocessing(df):
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997| <img src="kimujung/01_dt_over_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_over_roc.png" width="250" height="250" /> |
+|정확도: 0.840 <br> 정밀도: 0.542 <br> 재현율: 0.555| <img src="kimujung/01_dt_over_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_over_roc.png" width="250" height="250" /> |
 </center>
 
 - 랜덤포레스트
@@ -377,7 +383,7 @@ def discount_rate_preprocessing(df):
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.978 <br> 정밀도: 0.951 <br> 재현율: 0.909| <img src="kimujung/02_rf_cm.png" width="250" height="250" /> | <img src="kimujung/02_rf_roc.png" width="250" height="250" /> |
+|정확도: 0.884 <br> 정밀도: 0.730 <br> 재현율: 0.540| <img src="kimujung/02_rf_cm.png" width="250" height="250" /> | <img src="kimujung/02_rf_roc.png" width="250" height="250" /> |
 </center>
 
 - 랜덤포레스트 오버샘플링
@@ -385,7 +391,7 @@ def discount_rate_preprocessing(df):
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998| <img src="kimujung/02_rf_over_cm_1.png" width="250" height="250" /> | <img src="kimujung/02_rf_over_roc_1.png" width="250" height="250" /> |
+|정확도: 0.884 <br> 정밀도: 0.698 <br> 재현율: 0.602| <img src="kimujung/02_rf_over_cm.png" width="250" height="250" /> | <img src="kimujung/02_rf_over_roc.png" width="250" height="250" /> |
 </center>
 
 - XGBoost
@@ -401,7 +407,7 @@ def discount_rate_preprocessing(df):
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.958 <br> 정밀도: 0.924 <br> 재현율: 0.998| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
+|정확도: 0.883 <br> 정밀도: 0.667 <br> 재현율: 0.665| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM
@@ -419,27 +425,19 @@ def discount_rate_preprocessing(df):
 
 | **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.970| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
+|정확도: 0.874 <br> 정밀도: 0.644 <br> 재현율: 0.630| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
 </center>
 
 
 ## 최종 모델 선정
 
-- 랜덤포레스트 최종 모델 선정
+- XGBoost 최종 모델 선정
 <center>
 
 | **의사결정나무** | **랜덤 포레스트** | **XGBoost** | **LightGBM** |
 |:------------:|:------------:|:------------:|:------------:|
-| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 | 정확도: 0.958 <br> 정밀도: 0.924 <br> 재현율: 0.998 | 정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.97 |
+| 정확도: 0.840 <br> 정밀도: 0.542 <br> 재현율: 0.540 | 정확도: 0.884 <br> 정밀도: 0.698 <br> 재현율: 0.602 | 정확도: 0.883 <br> 정밀도: 0.667 <br> 재현율: 0.655 | 정확도: 0.874 <br> 정밀도: 0.644 <br> 재현율: 0.630 |
 </center>
-
-- 높은 정확도 확인
-
-<center>
-<img src="kimujung/cluster_chk.png" width="600" height="250" />
-</center>
-
-- 클러스터링을 통해 모델의 높은 정확도가 이상값이 아닌 잘 정제된 데이터에 의한 것임을 확인
 
 
 # 🎶결론
