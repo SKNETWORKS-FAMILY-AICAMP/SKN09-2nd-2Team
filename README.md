@@ -72,6 +72,8 @@
 - **city**: 사용자의 도시 코드
 - **bd**: 사용자의 연령
 - **gender**: 사용자의 성별 (남성/여성/미입력)
+  - female: 0
+  - male: 1
 - **registered_via**: 사용자의 등록 경로 (예: Facebook, Google 등)
 - **registration_init_time**: 사용자의 최초 가입 날짜
 - **is_churn**: 이탈 여부 (1: 이탈, 0: 유지)
@@ -96,6 +98,27 @@
 
 # 💗 ML 절차
 ## 데이터 이상치 및 결측치 처리
+**이상치 및 결측치 컬럼**
+   - bd
+   - gender
+- 이상치 시각화: `bd`, `payment_plan_sum`, `plan_list_price`, `actual_amount_paid`, `discount_rate`, `transaction_count`
+  [사진]<br>
+  → 이상치 컬럼을 봤을 때, `bd` 컬럼의 이상치가 무의미하다고 판단<br><br>
+  - `bd` 컬럼 이상치 처리 전
+  [사진] [사진] <br>
+  - 처리 공정
+    1. 음수 데이터 절댓값 처리
+    2. 10 ~ 100 사이 데이터 외 삭제
+  - `bd` 컬럼 이상치 처리 후
+  [사진] <br>
+- 결측치
+  - `gender` 컬럼 결측치 처리 전
+  [사진] <br>
+  - 처리 공정
+    1. 결측치 삭제
+    2. 범주형으로 Label Encoding 진행
+  - `gender` 컬럼 결측치 처리 후
+  [사진]
 
 ## EDA
 - `is_churn` 컬럼과 전체 컬럼의 상관계수
