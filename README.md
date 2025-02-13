@@ -155,11 +155,81 @@
 # 인공지능 학습 결과서 
 
 ## 모델 선정 및 학습
+- 모델선정은 그리드 서치를 이용하여 최적 파리미터를 선택하여 진행
 
 - 의사결정나무
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+    - 오버샘플링
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+- 랜덤포레스트
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+    - 오버샘플링
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+- XGBoost
+
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+    - 오버샘플링
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+- LightGBM
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+    - 오버샘플링
+
+5개 평균 정확도, 정밀도, 재현율
+
+| **혼동 행렬** | **ROC Curve** | **Learning Curve** |
+|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
+
+
 ## 최종 모델 선정
 
+- 랜덤포레스트 최종 모델 선정
 
+| **의사결정나무** | **랜덤 포레스트** | **XGBoost** | **LightGBM** |
+|:------------:|:------------:|:------------:|:------------:|
+| <img src="kimujung/gender_score.png" width="200" height="45" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> | <img src="kimujung/bd_score.png" width="200" height="50" /> |
 
 # 수행 결과
 
