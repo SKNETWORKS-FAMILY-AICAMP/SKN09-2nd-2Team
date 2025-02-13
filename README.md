@@ -354,12 +354,12 @@ def discount_rate_preprocessing(df):
 # 🎹인공지능 학습 결과서 
 
 ## 모델 선정 및 학습
-- 모델선정은 그리드 서치를 이용하여 최적 파리미터를 선택하였고 StratifiedKFold의 평균값으로 선정한다.
+- 모델 선정은 그리드 서치를 이용하여 최적 파리미터를 선택하였고 Stratified 5-Fold한 평가지표의 평균값으로 선정한다.
 
 - 의사결정나무
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** | 
+| **Score** | **Confusion Matrix** | **ROC Curve** | 
 |:----------------:|:------------:|:------------:|
 |정확도: 0.876 <br> 정밀도: 0.693 <br> 재현율: 0.530| <img src="kimujung/01_dt_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_roc.png" width="250" height="250" /> |
 </center>
@@ -367,7 +367,7 @@ def discount_rate_preprocessing(df):
 - 의사결정나무 오버샘플링
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
 |정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997| <img src="kimujung/01_dt_over_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_over_roc.png" width="250" height="250" /> |
 </center>
@@ -375,7 +375,7 @@ def discount_rate_preprocessing(df):
 - 랜덤포레스트
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
 |정확도: 0.978 <br> 정밀도: 0.951 <br> 재현율: 0.909| <img src="kimujung/02_rf_cm.png" width="250" height="250" /> | <img src="kimujung/02_rf_roc.png" width="250" height="250" /> |
 </center>
@@ -383,7 +383,7 @@ def discount_rate_preprocessing(df):
 - 랜덤포레스트 오버샘플링
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
 |정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998| <img src="kimujung/02_rf_over_cm_1.png" width="250" height="250" /> | <img src="kimujung/02_rf_over_roc_1.png" width="250" height="250" /> |
 </center>
@@ -391,35 +391,35 @@ def discount_rate_preprocessing(df):
 - XGBoost
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_roc.png" width="250" height="250" /> |
+|정확도: 0.889 <br> 정밀도: 0.733 <br> 재현율: 0.579| <img src="kimujung/03_xgb_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_roc.png" width="250" height="250" /> |
 </center>
 
 - XGBoost 오버샘플링
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
+|정확도: 0.958 <br> 정밀도: 0.924 <br> 재현율: 0.998| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM
 
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
+|정확도: 0.882 <br> 정밀도: 0.700 <br> 재현율: 0.575| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM 오버샘플링
 
 <center>
 
-| **Score** | **혼동 행렬** | **ROC Curve** |
+| **Score** | **Confusion Matrix** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
+|정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.970| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
 </center>
 
 
@@ -430,7 +430,7 @@ def discount_rate_preprocessing(df):
 
 | **의사결정나무** | **랜덤 포레스트** | **XGBoost** | **LightGBM** |
 |:------------:|:------------:|:------------:|:------------:|
-| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 |  | 정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536 |
+| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 | 정확도: 0.958 <br> 정밀도: 0.924 <br> 재현율: 0.998 | 정확도: 0.923 <br> 정밀도: 0.886 <br> 재현율: 0.97 |
 </center>
 
 - 높은 정확도 확인
@@ -453,7 +453,7 @@ def discount_rate_preprocessing(df):
 
 # 🎧한 줄 회고
 
-- 김우중 : 
+- 김우중 : 프로젝트 도중 소통 부재 등으로 인해 불필요한 시간 소요가 많았다. 이를 위해 다음부터는 사소한 회의라도 정리하여 공지하고 서로 맡은 업무를 명확하게 나누며, 코드 공유를 통해 전체적인 코드 일관성을 유지하여 추후 코드 병합 시 업무 소요를 최소화 하는 방향으로 업무를 수행할 것이다.
 - 이다인 : 결측값을 처리하는 과정에서 특정 컬럼의 결측치가 너무 많아 예측 모델로 보완하려 했으나, 설명할 변수가 부족해 적용이 어려웠다. 결국, 해당 컬럼의 결측값을 전부 삭제했음에도 모델 성능이 향상되었고, 이를 통해 무리한 대체보다 적절한 삭제가 중요함을 깨달았다.🤗
 - 이재혁 : 
 - 전성원 : 
