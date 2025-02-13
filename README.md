@@ -101,22 +101,41 @@
 **이상치 및 결측치 컬럼**
    - bd
    - gender<br><br>
-  **이상치 시각화: `bd`, `payment_plan_sum`, `plan_list_price`, `actual_amount_paid`, `discount_rate`, `transaction_count`**
+**이상치 시각화: `bd`, `payment_plan_sum`, `plan_list_price`, `actual_amount_paid`, `discount_rate`, `transaction_count`**
   [사진]<br>
   → 이상치 컬럼을 봤을 때, `bd` 컬럼의 이상치가 무의미하다고 판단<br><br>
   - `bd` 컬럼 이상치 처리 전
   [사진] [사진] <br>
   - 처리 공정
-    1. 음수 데이터 절댓값 처리
-    2. 10 ~ 100 사이 데이터 외 삭제
+1. 음수 데이터 절댓값 처리
+    ```python
+    df["bd"] = df["bd"].abs()
+    ```
+2. 10 ~ 100 사이 데이터 외 삭제
+   ```python
+   df = df[(df["bd"] >= 10) & (df["bd"] <= 100)]
+   ```
   - `bd` 컬럼 이상치 처리 후
   [사진] <br><br>
-  **결측치**
+**결측치**
   - `gender` 컬럼 결측치 처리 전
   [사진] <br>
   - 처리 공정
-    1. 결측치 삭제
-    2. 범주형으로 Label Encoding 진행
+1. 결측치 삭제
+   ```python
+   df['gender'].isna().sum()
+   df = df[df['gender'].notna()]
+   ```
+2. 숫자형으로 gender 데이터 변형 (male: 1, female:0)
+   ```python
+   def encode_gender(df):
+    # 성별 인코딩: M -> 1, F -> 0, nan -> -1 (또는 원하는 값으로 변경)
+    df['gender'] = df['gender'].map({'male': 1, 'female': 0})
+    
+    return df
+
+   df = encode_gender(df)
+   ```
   - `gender` 컬럼 결측치 처리 후
   [사진]
 
