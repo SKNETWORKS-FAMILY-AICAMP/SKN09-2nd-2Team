@@ -5,7 +5,7 @@
 # 💗Contents
 
 
-| 1. 팀 소개 | 2. 프로젝트 소개 | 3. 데이터 소개 | 4. ML 절차 | 5.기대효과 |
+| 1. 팀 소개 | 2. 프로젝트 개요 | 3. 데이터 소개 | 4. ML 절차 | 5.기대효과 |
 |------------|----------------|----------------|------------|------------|
 | 팀명 | 프로젝트 기간, WBS | 데이터 소개, 사용 컬럼 소개 | 데이터 정제, 이상치,결측치 처리, EDA | 기대효과 및 결론 |
 |팀원 소개 | 프로젝트 주제, 진행배경 | info | 데이터 전처리, 모델 선정 | |
@@ -56,6 +56,7 @@
 - **is_churn**: 이탈 여부 (1: 이탈, 0: 유지)
 
 `members.csv`
+>*사용자 특성 데이터*
 - **msno**: 사용자 고유 식별자
 - **city**: 사용자의 도시 코드
 - **bd**: 사용자의 연령
@@ -65,6 +66,7 @@
 
 
 `transactions.csv`
+>*사용자 거래 기록 데이터*
 - **msno**: 사용자 고유 식별자
 - **payment_plan_id** : 지불 방법
 - **payment_plan_days** : 멤버심 플랜 기간 (일)
@@ -77,6 +79,7 @@
 - **is_cancel**: 구독 취소 여부
 
 `user_logs.csv`
+>*사용자 플랫폼 사용 특성 데이터*
 - **msno**: 사용자 고유 식별자
 - **날짜**: 노래를 청취한 날짜(로그에 기록된 날짜)
 - **num_25**: 전체 노래 길이 중 25% 이하로 청취된 곡 수
@@ -115,6 +118,13 @@
 - **is_back**: 사용자가 다시 돌아왔는지 여부
 
 # Tech Stack
+
+<center>
+
+| **분야** |**사용 프로그램**|**데이터 처리**|**모델 학습**|**기타**|
+|:---:|:---:|:---:|:---:|:---:|
+|**기술** |<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">|<img src="https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white"> <br> <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <br> <img src="https://img.shields.io/badge/scikitlearn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white">|<img src="https://img.shields.io/badge/DecisionTree-FF8282?style=for-the-badge&logo=Python&logoColor=white">&nbsp;<img src="https://img.shields.io/badge/RandomForest-5FCF80?style=for-the-badge&logo=Python&logoColor=white"> <br> <img src="https://img.shields.io/badge/XGBoost-171FC9?style=for-the-badge&logo=Python&logoColor=white">&nbsp;<img src="https://img.shields.io/badge/LightGBM-FEC111?style=for-the-badge&logo=Python&logoColor=white">|<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">&nbsp;<img src="https://img.shields.io/badge/streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">|
+</center>
 
 # 💗 데이터 전처리 결과서 (EDA)
 
@@ -155,11 +165,92 @@
 # 인공지능 학습 결과서 
 
 ## 모델 선정 및 학습
+- 모델선정은 그리드 서치를 이용하여 최적 파리미터를 선택하였고 StratifiedKFold의 평균값으로 선정한다.
 
 - 의사결정나무
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** | 
+|:----------------:|:------------:|:------------:|
+|정확도: 0.876 <br> 정밀도: 0.693 <br> 재현율: 0.530| <img src="kimujung/01_dt_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_roc.png" width="250" height="250" /> |
+</center>
+
+- 의사결정나무 오버샘플링
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997| <img src="kimujung/01_dt_over_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_over_roc.png" width="250" height="250" /> |
+</center>
+
+- 랜덤포레스트
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0.978 <br> 정밀도: 0.951 <br> 재현율: 0.909| <img src="kimujung/02_rf_cm.png" width="250" height="250" /> | <img src="kimujung/02_rf_roc.png" width="250" height="250" /> |
+</center>
+
+- 랜덤포레스트 오버샘플링
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998| <img src="kimujung/02_rf_over_cm_1.png" width="250" height="250" /> | <img src="kimujung/02_rf_over_roc_1.png" width="250" height="250" /> |
+</center>
+
+- XGBoost
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_roc.png" width="250" height="250" /> |
+</center>
+
+- XGBoost 오버샘플링
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
+</center>
+
+- LightGBM
+
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
+</center>
+
+- LightGBM 오버샘플링
+
+<center>
+
+| **Score** | **혼동 행렬** | **ROC Curve** |
+|:----------------:|:------------:|:------------:|
+|정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
+</center>
+
+
 ## 최종 모델 선정
 
+- 랜덤포레스트 최종 모델 선정
+<center>
 
+| **의사결정나무** | **랜덤 포레스트** | **XGBoost** | **LightGBM** |
+|:------------:|:------------:|:------------:|:------------:|
+| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 |  | 정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536 |
+</center>
+
+- 높은 정확도 확인
+
+<center>
+<img src="kimujung/cluster_chk.png" width="600" height="250" />
+</center>
+
+- 클러스터링을 통해 모델의 높은 정확도가 이상값이 아닌 잘 정제된 데이터에 의한 것임을 확인
 
 # 수행 결과
 
@@ -173,3 +264,7 @@
 
 # 한 줄 회고
 
+- 김우중 : 
+- 이다인 : 
+- 이재혁 : 
+- 전성원 : 
