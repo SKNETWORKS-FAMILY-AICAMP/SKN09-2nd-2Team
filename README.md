@@ -22,15 +22,11 @@
 ### 🎃팀명: StayTuned 🍀<br>
 ### 🐱팀원
 
-| 이름      | GitHub ID                          |
-|-----------|------------------------------------|
-| 🧑‍💻 김우중  | [@kwj9942](https://github.com/kwj9942)      |
-| 👩‍💻 이다인  | [@daainn](https://github.com/daainn)        |
-| 👩‍💻 이재혁  | [@ohdyo](https://github.com/ohdyo)          |
-| 👨‍💻 전성원  | [@Hack012](https://github.com/Hack012)      |
 
-<br>
-
+| 김우중 | 이다인 | 이재혁 | 전성원 |
+|------|------|------|------|
+| <img src="./readme_images/포비.png"> | <img src="./readme_images/루피.png"> | <img src="./readme_images/뽀로로.png"> | <img src="./readme_images/패티.png"> |
+| [@kwj9942](https://github.com/kwj9942) | [@daainn](https://github.com/daainn) | [@ohdyo](https://github.com/ohdyo) | [@Hack012](https://github.com/Hack012) |
 
 ---
 
@@ -134,12 +130,32 @@
 > 사용자를 식별하는  `MSNO`컬럼값이 `Rb9UwLQTrxzBVwCB6+bCcSQWZ9JiNLC9dXtM1oEsZA8=`와 같이 매우 길게 구성되어 있어 데이터의 크기를 불필요하게 증가시키는 문제가 있었다. 이를 해결하기 위해 각 값을 고유한 숫자로 변환하는 인코딩을 적용하여 데이터의 효율성을 높였다.
 
 #### 거래 데이터
-*
+> 음원 스트리밍 서비스에서 사용자가 구독을 종료한 후 다시 재구독하면, 하나의 사용자에 대해 여러 개의 거래 데이터가 기록될 수 있다. 이를 해결하기 위해, 사용자별로 하나의 행만 유지하도록 데이터를 재구성하였다.
+* `is_back` : 사용자가 재구독을 한 경우 1의 값, 사용자가 재구독을 하지 않았을 경우 0의 값을 가지도록 구성.
+* `payment_plan_sum` : 사용자가 구독한 결제 플랜 개수의 총함.
+* `plan_list_price` : 사용자가 구매한 요금제 가격의 총합.
+* `actual_amount_paid ` : 사용자가 실제 지불한 금액의 총합.
+* `discount_rate` : 구독한 결제 플랜과 구매한 요금제 가격을 통해 계산된 할인율의 평균.
+* `is_auto_renew` : 자동갱신여부의 비율.
+* `is_cancle` : 구독 만료 여부의 비율.
+* `membership_expire_date` : 가장 최근 구독 만료 날짜.
+* `transaction_count` : 총 거래 횟수.
 
 #### 로그 데이터
 
+* 로그 데이터의 경우 파일의 크기가 다른 파일에 비해 공간을 많이 차지하기에 파일을 판다스가 읽을수 있는 크기로 분할
 
->타 데이터와 로그 데이터를 합치는 과정에서 로그 데이터에만 존재하는 `msno`는 드롭해주었다.
+* `member.csv`에 없는 `msno` 드랍
+
+* 모든 데이터가 사용 횟수 및 갯수에 대한 컬럼이기에 음수가 존재하면 안된다 판단하여 음수값이 들어간 행 드랍
+
+* msno별 누적 횟수를 파악하도록 값을 누적시켜 압축
+    * 최종적으로 고유한 유저 마다 이용별 기록 횟수 확인 가능 
+
+
+
+>* 데이터 정제 및 파생변수 생성을 마친 후 거래 데이터와 로그 데이터 및 타 데이터를 `msno`를 기준으로 merge해주었다.
+* 이 과정에서 로그 데이터에만 존재하는 `msno`는 드롭해주었다.
 
 ## 데이터 이상치 및 결측치 처리
 
