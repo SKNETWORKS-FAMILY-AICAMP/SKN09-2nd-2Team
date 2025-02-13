@@ -5,7 +5,7 @@
 # 💗Contents
 
 
-| 1. 팀 소개 | 2. 프로젝트 소개 | 3. 데이터 소개 | 4. ML 절차 | 5.기대효과 |
+| 1. 팀 소개 | 2. 프로젝트 개요 | 3. 데이터 소개 | 4. ML 절차 | 5.기대효과 |
 |------------|----------------|----------------|------------|------------|
 | 팀명 | 프로젝트 기간, WBS | 데이터 소개, 사용 컬럼 소개 | 데이터 정제, 이상치,결측치 처리, EDA | 기대효과 및 결론 |
 |팀원 소개 | 프로젝트 주제, 진행배경 | info | 데이터 전처리, 모델 선정 | |
@@ -115,6 +115,13 @@
 - **is_back**: 사용자가 다시 돌아왔는지 여부
 
 # Tech Stack
+
+<center>
+
+| **분야** |**사용 프로그램**|**데이터 처리**|**모델 학습**|**기타**|
+|:---:|:---:|:---:|:---:|:---:|
+|**기술** |<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">|<img src="https://img.shields.io/badge/numpy-013243?style=for-the-badge&logo=numpy&logoColor=white"> <br> <img src="https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"> <br> <img src="https://img.shields.io/badge/scikitlearn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white">|<img src="https://img.shields.io/badge/DecisionTree-FF8282?style=for-the-badge&logo=Python&logoColor=white">&nbsp;<img src="https://img.shields.io/badge/RandomForest-5FCF80?style=for-the-badge&logo=Python&logoColor=white"> <br> <img src="https://img.shields.io/badge/XGBoost-171FC9?style=for-the-badge&logo=Python&logoColor=white">&nbsp;<img src="https://img.shields.io/badge/LightGBM-FEC111?style=for-the-badge&logo=Python&logoColor=white">|<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">&nbsp;<img src="https://img.shields.io/badge/streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white">|
+</center>
 
 # 💗 데이터 전처리 결과서 (EDA)
 
