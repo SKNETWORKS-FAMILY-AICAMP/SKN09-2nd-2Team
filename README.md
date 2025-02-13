@@ -194,7 +194,7 @@
 
 | **Score** | **혼동 행렬** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0.876 <br> 정밀도: 0.693 <br> 재현율: 0.530| <img src="kimujung/01_dt_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_roc.png" width="250" height="250" /> |
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_roc.png" width="250" height="250" /> |
 </center>
 
 - XGBoost 오버샘플링
@@ -202,7 +202,7 @@
 
 | **Score** | **혼동 행렬** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/01_dt_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_roc.png" width="250" height="250" /> |
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/03_xgb_over_cm.png" width="250" height="250" /> | <img src="kimujung/03_xgb_over_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM
@@ -211,7 +211,7 @@
 
 | **Score** | **혼동 행렬** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/01_dt_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_roc.png" width="250" height="250" /> |
+|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/04_lgbm_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_roc.png" width="250" height="250" /> |
 </center>
 
 - LightGBM 오버샘플링
@@ -220,7 +220,7 @@
 
 | **Score** | **혼동 행렬** | **ROC Curve** |
 |:----------------:|:------------:|:------------:|
-|정확도: 0. <br> 정밀도: 0. <br> 재현율: 0.| <img src="kimujung/01_dt_cm.png" width="250" height="250" /> | <img src="kimujung/01_dt_roc.png" width="250" height="250" /> |
+|정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536| <img src="kimujung/04_lgbm_over_cm.png" width="250" height="250" /> | <img src="kimujung/04_lgbm_over_roc.png" width="250" height="250" /> |
 </center>
 
 
@@ -231,7 +231,7 @@
 
 | **의사결정나무** | **랜덤 포레스트** | **XGBoost** | **LightGBM** |
 |:------------:|:------------:|:------------:|:------------:|
-| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 |  |  |
+| 정확도: 0.942 <br> 정밀도: 0.899 <br> 재현율: 0.997 | 정확도: 0.992 <br> 정밀도: 0.987 <br> 재현율: 0.998 |  | 정확도: 0.680 <br> 정밀도: 0.747 <br> 재현율: 0.536 |
 </center>
 
 - 높은 정확도 확인
