@@ -477,7 +477,7 @@ def discount_rate_preprocessing(df):
 
 ## 최종 모델 선정
 
-- XGBoost 최종 모델 선정
+- 랜덤 포레스트 최종 모델 선정
 
 <center>
 
