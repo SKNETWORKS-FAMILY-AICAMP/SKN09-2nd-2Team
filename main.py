@@ -8,7 +8,7 @@ st.set_page_config(page_title="🎵 음악 사이트 이탈률 예측", layout="
 # 모델 로드 함수
 def load_model():
     try:
-        model = joblib.load("./model/rf_model_over.joblib")
+        model = joblib.load("./model/xgb_model_over.joblib")
         return model
     except Exception as e:
         st.error(f"모델을 불러오는 중 오류 발생: {e}")
@@ -46,19 +46,19 @@ col1, col2, col3 = st.columns(3)
 with col1:
     gender = st.radio("성별", ["남성", "여성"], index=0, horizontal=True)
 with col2:
-    bd = st.slider("나이 (bd)", min_value=10, max_value=100, step=1, value=32)
+    bd = st.slider("나이 (bd)", min_value=10, max_value=100, step=1, value=26)
 with col3:
-    payment_plan_sum = st.number_input("📅 멤버십 가입 기간", min_value=0, step=1, value=30) 
+    payment_plan_sum = st.number_input("📅 멤버십 가입 기간", min_value=0, step=1, value=500) 
 
 # 결제 정보 입력
 st.header("💰 결제 정보")
 col1, col2, col3 = st.columns(3)
 with col1:
-    plan_list_price = st.number_input("요금제 정가", min_value=0, step=1, value=25000)
+    plan_list_price = st.number_input("요금제 정가", min_value=0, step=1, value=2250)
 with col2:
-    actual_amount_paid = st.number_input("실제 지불 금액", min_value=0, step=1, value=120000)
+    actual_amount_paid = st.number_input("실제 지불 금액", min_value=0, step=1, value=2250)
 with col3:
-    is_auto_renew = st.slider('자동 갱신 비율(%)', min_value=0, step=1, value=10)
+    is_auto_renew = st.slider('자동 갱신 비율(%)', min_value=0, step=1, value=50)
 
 # 청취 패턴 입력
 st.header("🎧 청취 패턴")
@@ -78,7 +78,7 @@ st.header("📆 활동 기간")
 col1, col2 = st.columns(2)
 with col1:
     total_secs = st.number_input("⏳ 총 청취 시간 (초)", min_value=0.0, step=1.0, value=900000.0)
-    listening_duration = st.number_input("🎤 청취 지속 일수", min_value=0, step=1, value=20)
+    listening_duration = st.number_input("🎤 플랫폼 사용 기간", min_value=0, step=1, value=500)
 with col2:
     registration_duration = st.number_input("📆 가입 후 경과일", min_value=0, step=1, value=700)
     
@@ -105,8 +105,8 @@ input_data = pd.DataFrame({
     "actual_amount_paid": [actual_amount_paid],
     "discount_rate": [mode_values.get("discount_rate", 0.0)],
     "is_auto_renew": [is_auto_renew/100.0],
-    "is_cancel": [1],
-    # "transaction_count": [mode_values.get("transaction_count", 0)],
+    "is_cancel": [0],
+    # "transaction_count": [(mode_values.get("transaction_count", 0)) / 10],
     "transaction_count": [0],
     "num_25": [num_25],
     "num_50": [num_50],
@@ -141,7 +141,7 @@ show_data = pd.DataFrame({
     "고유 곡 수": [num_unq],
     "총 청취 시간(초)": [total_secs],
     "가입 후 경과일": [registration_duration],
-    "청취 지속 일수": [listening_duration]
+    "플랫폼 사용 기간": [listening_duration]
 })
 
 st.write("### 📝 입력한 데이터")
@@ -173,8 +173,14 @@ if st.session_state.prediction_result:
     st.write("### 🎯 예측 결과")
     if prediction == 1:
         st.error(f"사용자가 이탈할 가능성이 높습니다. (확률: {prediction_proba[1]:.2%})")
-        st.write(f'고유 청취 곡수가 일반 사용자의 평균값에 비해 {(is_back['num_unq']-num_unq)}개 적습니다.')
         if (is_back['is_auto_renew'] - is_auto_renew) < 0 :
             st.write(f'자동 갱신 비율이 일반 사용자에 낮습니다.')
+        if ((num_unq)-is_back['num_unq']) > 0:
+            st.write(f'고유 청취 곡수가 일반 사용자의 평균값에 비해 많이 청취했습니다.')
+        elif ((num_unq)-is_back['num_unq']) < 0:
+            st.write(f'고유 청취 곡수가 일반 사용자의 평균값에 비해 적게 청취했습니다.')
+        else :
+            st.writ('일반 사용자의 평균값과 같습니다.')
+        
     else:
         st.success(f"사용자가 유지될 가능성이 높습니다. (확률: {prediction_proba[0]:.2%})")
