@@ -502,8 +502,10 @@ def discount_rate_preprocessing(df):
 ## 데모 시스템 구현
 - 임의의 유저를 생성해서 예측가능하게 해주는 입력부
 <img src="./images/input.png">
+
 - 입력된 값이 맞는지 확인해주는 영역
 <img src="./images/show_input.png">
+
 - 예측을 통해 이 사람이 이탈했는지 아닌지에 대한 예측결과와 비율
 <img src="./images/predict.png">
 
