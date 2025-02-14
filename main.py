@@ -1,18 +1,25 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import os
 
 # 제목 설정
 st.set_page_config(page_title="🎵 음악 사이트 이탈률 예측", layout="wide")
 
-# 모델 로드 함수
+
 def load_model():
-    try:
-        model = joblib.load("./model/xgb_model_over.joblib")
-        return model
-    except Exception as e:
-        st.error(f"모델을 불러오는 중 오류 발생: {e}")
-        return None
+    model_paths = ["./model/xgb_model_over.joblib", "./model/rf_model_over.joblib"]
+    
+    for model_path in model_paths:
+        if os.path.exists(model_path):
+            try:
+                model = joblib.load(model_path)
+                return model
+            except Exception as e:
+                st.error(f"모델을 불러오는 중 오류 발생: {e}")
+                return None
+    st.error("모델 파일을 찾을 수 없습니다.")
+    return None
 
 # 최빈값 로드 함수
 def load_mode_values():
@@ -58,7 +65,7 @@ with col1:
 with col2:
     actual_amount_paid = st.number_input("실제 지불 금액", min_value=0, step=1, value=2250)
 with col3:
-    is_auto_renew = st.slider('자동 갱신 비율(%)', min_value=0, step=1, value=50)
+    is_auto_renew = st.slider('자동 갱신 비율(%)', min_value=0, step=1, value=20)
 
 # 청취 패턴 입력
 st.header("🎧 청취 패턴")
@@ -99,7 +106,7 @@ input_data = pd.DataFrame({
     "city": [0],
     "bd": [bd],
     "gender": [1 if gender == "남성" else 0],
-    "registered_via": [mode_values.get("registered_via", 0)],
+    "registered_via": [4],
     "payment_plan_sum": [payment_plan_sum],
     "plan_list_price": [plan_list_price],
     "actual_amount_paid": [actual_amount_paid],
